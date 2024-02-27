@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>个人网站</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <style>
   body {
     font-family: 'Arial', sans-serif;
@@ -11,12 +12,18 @@
     padding: 0;
     background-color: #f7f7f7;
     color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   .header {
     background-color: #fff;
     padding: 50px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .night-mode .header {
+    background-color: #282c34;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
   }
   .avatar {
     width: 150px;
@@ -27,7 +34,6 @@
   .name {
     font-size: 2.5em;
     margin: 0;
-    color: #333;
   }
   .description {
     font-size: 1.1em;
@@ -50,79 +56,107 @@
   .contact-links a:hover {
     color: #0056b3;
   }
+  .night-mode .contact-links a {
+    color: #81a2be;
+  }
+  .night-mode .contact-links a:hover {
+    color: #5e81ac;
+  }
   .portfolio {
     padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
   }
   .portfolio-item {
     background-color: #fff;
     border-radius: 8px;
     margin-bottom: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     overflow: hidden;
-  }
-  .portfolio-item:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: calc(33.33% - 20px);
   }
   .portfolio-item img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.3s ease;
   }
-  .portfolio-title {
+  .portfolio-item:hover img {
+    transform: scale(1.05);
+  }
+  .portfolio-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .night-mode .portfolio-item {
+    background-color: #2d303b;
+  }
+  .portfolio-title, .portfolio-desc {
     padding: 20px;
     font-size: 1.2em;
-    color: #333;
   }
-  .portfolio-desc {
-    padding: 20px;
-    font-size: 1em;
-    color: #666;
+  .portfolio-title, .night-mode .portfolio-desc {
+    color: #c5c8c6;
   }
-  @media (max-width: 768px) {
-    .portfolio-item {
-      width: calc(50% - 20px);
-    }
+  .mode-toggle {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease;
   }
-  @media (max-width: 480px) {
-    .portfolio-item {
-      width: 100%;
-    }
-    .name {
-      font-size: 2em;
-    }
-    .description {
-      font-size: 1em;
-    }
-    .portfolio-title {
-      font-size: 1.1em;
-    }
-    .portfolio-desc {
-      font-size: 0.9em;
-    }
+  .mode-toggle:focus {
+    outline: none;
+  }
+  .mode-toggle i {
+    font-size: 24px;
+  }
+  .night-mode .mode-toggle i {
+    color: #81a2be;
   }
 </style>
 </head>
 <body>
   <div class="header">
-    <img class="avatar" src="/res/image/tx.jpg" alt="头像">
+    <img class="avatar" src="http://q.qlogo.cn/headimg_dl?dst_uin=1663996167&spec=640&img_type=jpg" alt="Your Avatar">
     <h1 class="name">你的名字</h1>
     <p class="description">简短的个人简介...</p>
     <ul class="contact-links">
-      <li><a href="mailto:your-email@example.com"><i class="fa fa-envelope"></i></a></li>
-      <li><a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-      <li><a href="https://github.com/your-github-profile" target="_blank"><i class="fa fa-github"></i></a></li>
+      <li><a href="mailto:1663996167@qq.com" target="_blank"><i class="fas fa-envelope"></i> Email</a></li>
+      <li><a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+      <li><a href="https://github.com/3371455651" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
       <!-- Add more social icons as needed -->
     </ul>
+    <button id="mode-toggle" class="mode-toggle" title="切换模式"><i class="fas fa-moon"></i></button>
   </div>
   <div class="portfolio">
     <!-- Portfolio items go here -->
     <div class="portfolio-item">
-      <img src="path-to-your-project-image.jpg" alt="Project Image">
-      <div class="portfolio-title">项目标题</div>
+      <img src="http://q.qlogo.cn/headimg_dl?dst_uin=1663996167&spec=640&img_type=jpg" alt="Project Image 1">
+      <div class="portfolio-title">项目标题 1</div>
+      <div class="portfolio-desc">项目简介...</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="http://q.qlogo.cn/headimg_dl?dst_uin=1663996167&spec=640&img_type=jpg" alt="Project Image 2">
+      <div class="portfolio-title">项目标题 2</div>
       <div class="portfolio-desc">项目简介...</div>
     </div>
     <!-- Add more portfolio items -->
   </div>
+
+  <script>
+    const modeToggle = document.getElementById('mode-toggle');
+    function toggleMode() {
+      document.body.classList.toggle('day-mode');
+      document.body.classList.toggle('night-mode');
+      const icon = modeToggle.querySelector('i');
+      icon.classList.toggle('fa-moon');
+      icon.classList.toggle('fa-sun');
+    }
+    modeToggle.addEventListener('click', toggleMode);
+  </script>
 </body>
 </html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个人网站</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+  }
+  .header {
+    background-color: #fff;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .name {
+    font-size: 2.5em;
+    margin: 0;
+    color: #333;
+  }
+  .description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+  }
+  .contact-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .contact-links li {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  .contact-links a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  .contact-links a:hover {
+    color: #0056b3;
+  }
+  .portfolio {
+    padding: 50px;
+  }
+  .portfolio-item {
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+  .portfolio-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .portfolio-title {
+    padding: 20px;
+    font-size: 1.2em;
+    color: #333;
+  }
+  .portfolio-desc {
+    padding: 20px;
+    font-size: 1em;
+    color: #666;
+  }
+  @media (max-width: 768px) {
+    .portfolio-item {
+      width: calc(50% - 20px);
+    }
+  }
+  @media (max-width: 480px) {
+    .portfolio-item {
+      width: 100%;
+    }
+    .name {
+      font-size: 2em;
+    }
+    .description {
+      font-size: 1em;
+    }
+    .portfolio-title {
+      font-size: 1.1em;
+    }
+    .portfolio-desc {
+      font-size: 0.9em;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <img class="avatar" src="/res/image/tx.jpg" alt="头像">
+    <h1 class="name">你的名字</h1>
+    <p class="description">简短的个人简介...</p>
+    <ul class="contact-links">
+      <li><a href="mailto:your-email@example.com"><i class="fa fa-envelope"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      <li><a href="https://github.com/your-github-profile" target="_blank"><i class="fa fa-github"></i></a></li>
+      <!-- Add more social icons as needed -->
+    </ul>
+  </div>
+  <div class="portfolio">
+    <!-- Portfolio items go here -->
+    <div class="portfolio-item">
+      <img src="path-to-your-project-image.jpg" alt="Project Image">
+      <div class="portfolio-title">项目标题</div>
+      <div class="portfolio-desc">项目简介...</div>
+    </div>
+    <!-- Add more portfolio items -->
+  </div>
+</body>
+</html>
